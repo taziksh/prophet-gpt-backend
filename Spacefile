@@ -1,0 +1,14 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: prophet-gpt-backend
+    src: ./
+    engine: python3.9
+    run: python main.py
+    public_routes:
+      - "/prompts/*"
+    primary: true
+    presets:
+      env:
+        - name: OPEN_API_KEY
+          default: "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"
