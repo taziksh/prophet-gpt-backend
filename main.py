@@ -9,11 +9,13 @@ import time
 openai.api_key = os.environ["OPEN_AI_KEY"]
 PORT = os.environ["PORT"]
 
+origins = ["http://localhost:3000", "https://prophet-gpt-frontend.vercel.app"]
+
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*'],
@@ -24,7 +26,8 @@ RELIGIONS = ["Christianity", "Islam", "Judaism", "Buddhism", "Hinduism", "Taoism
 async def query(question: str, religion: str) -> str:
     res = await openai.ChatCompletion.acreate(
         #model="text-davinci-003",
-        model="gpt-3.5-turbo",
+        #model="gpt-3.5-turbo",
+        model="gpt-4",
         max_tokens=128,
         #prompt = f"What is {question} in {religion}"
         messages=[
