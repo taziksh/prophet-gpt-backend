@@ -9,7 +9,7 @@ import time
 openai.api_key = os.environ["OPEN_AI_KEY"]
 PORT = os.environ["PORT"]
 
-origins = ["http://localhost:3000", "https://prophet-gpt-frontend.vercel.app"]
+origins = ["http://localhost:3000", "https://religiongpt.vercel.app"]
 
 app = FastAPI()
 
