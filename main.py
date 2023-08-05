@@ -6,7 +6,7 @@ import asyncio
 import os
 import openai
 import time
-openai.api_key = os.environ["OPEN_API_KEY"]
+openai.api_key = os.environ["OPEN_AI_KEY"]
 
 app = FastAPI()
 
